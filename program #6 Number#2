@@ -1,0 +1,14 @@
+"""
+Created on Thu Feb 24 12:54:32 2022
+Program prompts the user to select option, then pick an account to use and finally prompt the transaction amount.
+p
+
+Pre-condition:
+Post-condition: 
+@author: Griffin Overmyer and Deo Bibila
+
+"""
+
+print("Welcome to Overmyer and Deo's Bank, We appreciate you being part of this big family")
+
+def start_am(checking, saving)
