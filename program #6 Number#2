@@ -9,6 +9,73 @@ Post-condition:
 
 """
 
-print("Welcome to Overmyer and Deo's Bank, We appreciate you being part of this big family")
+def deposit(checkings, savings, where):
+    amount = float(input('Enter amount of transaction: '))
+    if where == 'c':
+        checkings += amount
+    elif where == 's':
+        savings += amount
+        
+    return checkings, savings
 
-def start_am(checking, saving)
+def withdraw(checkings, savings, where):
+    amount = float(input('Enter amount of transaction: '))
+    if where == 'c':
+        if checkings >= amount:
+            checkings -= amount
+        else:
+            print('\nInsufficient funds')
+    elif where == 's':
+        if savings >= amount:
+            savings -= amount
+        else:
+            print('\nInsufficient funds')
+        
+    return checkings, savings
+
+def transfer(checkings, savings, where):
+    amount = float(input('Enter amount of transaction: '))
+    if where == 'c':
+        if checkings >= amount:
+            checkings -= amount
+            savings += amount
+        else:
+            print('\nInsufficient funds')
+    elif where == 's':
+        if savings >= amount:
+            savings -= amount 
+            checkings += amount
+        else:
+            print('\nInsufficient funds')
+
+    return checkings, savings
+
+
+string1 = input('Enter the starting checking and savings balances: ')
+list1 = string1.split(' ')
+
+checkings = float(list1[0])
+savings = float(list1[1])
+
+action = ''
+while action != 'q':
+    print('--------------------------------')
+    print('\nChecking Balance: {}    Savings Balance: {}'.format(format(checkings,'.2f'),format(savings,'.2f')))
+    action = input('(D)eposit    (W)ithdraw    (T)ransfer     (Q)uit: ').lower()
+    if action == 'q':
+        continue
+    
+    where = ''
+    while where != 'c' and where != 's':
+        where = input('(C)heckings\t(S)avings: ').lower()
+    
+    if action == 'd':
+        checkings, savings = deposit(checkings, savings, where)
+    elif action == 'w':
+        checkings, savings = withdraw(checkings, savings, where)
+    elif action == 't':
+        checkings, savings = transfer(checkings, savings, where)
+        
+print('\nGoodbye')
+
+'''Thank you for visiting Deo and Griffin's bank.'''
